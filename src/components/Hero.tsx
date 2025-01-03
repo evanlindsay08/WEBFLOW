@@ -1,54 +1,26 @@
 import { useState, useEffect } from 'react';
+import { useWallet } from '@solana/wallet-adapter-react';
 
 const Hero = () => {
-  const [time, setTime] = useState({
-    hours: 4,
-    minutes: 0,
-    seconds: 0
-  });
   const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(prevTime => {
-        if (prevTime.hours === 0 && prevTime.minutes === 0 && prevTime.seconds === 0) {
-          clearInterval(timer);
-          return prevTime;
-        }
-
-        let newSeconds = prevTime.seconds - 1;
-        let newMinutes = prevTime.minutes;
-        let newHours = prevTime.hours;
-
-        if (newSeconds < 0) {
-          newSeconds = 59;
-          newMinutes -= 1;
-        }
-        if (newMinutes < 0) {
-          newMinutes = 59;
-          newHours -= 1;
-        }
-
-        return {
-          hours: newHours,
-          minutes: newMinutes,
-          seconds: newSeconds
-        };
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
+  const { connected } = useWallet();
 
   useEffect(() => {
     if (showModal) {
       const timer = setTimeout(() => {
         setShowModal(false);
-      }, 3000);
+      }, 4000);
 
       return () => clearTimeout(timer);
     }
   }, [showModal]);
+
+  const getModalMessage = () => {
+    if (connected) {
+      return "Please bare with us, as we validate the contract address for $FLOW, in order to confirm if you hold the correct number of tokens";
+    }
+    return "Hold 500,000 tokens to unlock this feature";
+  };
 
   return (
     <section className="pt-52 pb-20 bg-transparent min-h-screen gradient-overlay">
@@ -82,44 +54,6 @@ const Hero = () => {
                 </svg>
               </button>
             </div>
-            
-            {/* Digital Clock Countdown */}
-            <div className="mt-8 flex justify-center items-center">
-              <div className="bg-[#141414]/50 backdrop-blur-sm border border-[#282828] rounded-xl p-6">
-                <div className="flex items-center gap-4">
-                  {/* Hours */}
-                  <div className="bg-[#0F0F0F]/50 px-4 py-3 rounded-lg border border-[#282828]/50">
-                    <div className="font-mono text-5xl text-[#FF2D55] font-bold tracking-wider opacity-90" style={{ fontFamily: 'digital-7, monaco, monospace' }}>
-                      {String(time.hours).padStart(2, '0')}
-                    </div>
-                  </div>
-                  
-                  {/* Blinking Colon */}
-                  <div className="text-[#FF2D55] text-5xl font-bold opacity-75 animate-[blink_1s_steps(1)_infinite]">
-                    :
-                  </div>
-
-                  {/* Minutes */}
-                  <div className="bg-[#0F0F0F]/50 px-4 py-3 rounded-lg border border-[#282828]/50">
-                    <div className="font-mono text-5xl text-[#FF2D55] font-bold tracking-wider opacity-90" style={{ fontFamily: 'digital-7, monaco, monospace' }}>
-                      {String(time.minutes).padStart(2, '0')}
-                    </div>
-                  </div>
-
-                  {/* Blinking Colon */}
-                  <div className="text-[#FF2D55] text-5xl font-bold opacity-75 animate-[blink_1s_steps(1)_infinite]">
-                    :
-                  </div>
-
-                  {/* Seconds */}
-                  <div className="bg-[#0F0F0F]/50 px-4 py-3 rounded-lg border border-[#282828]/50">
-                    <div className="font-mono text-5xl text-[#FF2D55] font-bold tracking-wider opacity-90" style={{ fontFamily: 'digital-7, monaco, monospace' }}>
-                      {String(time.seconds).padStart(2, '0')}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -130,7 +64,7 @@ const Hero = () => {
           <div className="bg-[#FF0033]/10 backdrop-blur-sm border-2 border-[#FF0033] rounded-lg p-3 max-w-[280px] shadow-2xl">
             <div className="flex items-center justify-between gap-3">
               <p className="text-[#FF0033] text-sm font-semibold">
-                Hold 500,000 tokens to unlock this feature
+                {getModalMessage()}
               </p>
               <button 
                 onClick={() => setShowModal(false)}
