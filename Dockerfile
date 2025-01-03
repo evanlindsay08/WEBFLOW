@@ -1,21 +1,35 @@
+# Use Node.js 18 Alpine as base image
 FROM node:18.19.0-alpine
 
+# Add necessary build dependencies
+RUN apk add --no-cache python3 make g++
+
+# Set working directory
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 
-# Create .npmrc with required configurations
-RUN echo "legacy-peer-deps=true\nnode-version=18.19.0\nstrict-peer-dependencies=false\nauto-install-peers=true" > .npmrc
+# Set npm configurations directly
+RUN npm config set legacy-peer-deps true \
+    && npm config set strict-peer-dependencies false \
+    && npm config set auto-install-peers true
 
 # Install dependencies
-RUN npm ci --legacy-peer-deps
+RUN npm ci --only=production --no-audit
 
-# Copy rest of the application
+# Copy application files
 COPY . .
 
 # Build the application
 RUN npm run build
+
+# Remove development dependencies
+RUN npm prune --production
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
 
 # Expose port
 EXPOSE 3000

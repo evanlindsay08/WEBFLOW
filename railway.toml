@@ -3,11 +3,12 @@ builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "npm start"
+startCommand = "node server.js"
 healthcheckPath = "/"
 healthcheckTimeout = 100
 restartPolicy = "on-failure"
 
 [variables]
 NODE_ENV = "production"
-PORT = "3000" 
+PORT = "3000"
+RAILWAY_DOCKERFILE_PATH = "./Dockerfile" 
