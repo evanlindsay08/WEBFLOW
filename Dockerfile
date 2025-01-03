@@ -7,13 +7,13 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Set npm configurations
+# Set npm configurations (only using valid options)
 RUN npm config set legacy-peer-deps true \
-    && npm config set strict-peer-dependencies false \
-    && npm config set auto-install-peers true
+    && npm config set strict-ssl false \
+    && npm config set fetch-retries 5
 
 # Install dependencies including dev dependencies (needed for build)
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 # Copy application files
 COPY . .
