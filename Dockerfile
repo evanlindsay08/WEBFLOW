@@ -4,7 +4,9 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-COPY .npmrc ./
+
+# Create .npmrc with required configurations
+RUN echo "legacy-peer-deps=true\nnode-version=18.19.0\nstrict-peer-dependencies=false\nauto-install-peers=true" > .npmrc
 
 # Install dependencies
 RUN npm ci --legacy-peer-deps
