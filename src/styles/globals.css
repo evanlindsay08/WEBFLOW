@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #111111;
+  color: white;
+}
+
+::selection {
+  background: #CCFF00;
+  color: black;
+}
+
+/* Star animation styles */
+.stars-container {
+  perspective: 300px;
+  background: transparent;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  animation: starFloat linear infinite;
+  opacity: 0;
+  box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes starFloat {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+/* Adjusted gradient overlay to be more transparent */
+.gradient-overlay {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(17, 17, 17, 0.8) 50%,
+    transparent 100%
+  );
+}
+
+/* Add smooth section transitions */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Style just the main connect button */
+.wallet-adapter-button-trigger {
+  background-color: #FF0033 !important;
+  color: white !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  height: 36px !important;
+  line-height: 1 !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+}
+
+.wallet-adapter-button-trigger:hover {
+  background-color: rgba(255, 0, 51, 0.9) !important;
+}
+
+/* Style the modal but keep default wallet buttons */
+.wallet-adapter-modal-wrapper {
+  background-color: #141414 !important;
+  border: 1px solid #282828 !important;
+}
+
+.wallet-adapter-modal-button-close {
+  background-color: #282828 !important;
+}
+
+.wallet-adapter-modal-title {
+  color: white !important;
+} 
