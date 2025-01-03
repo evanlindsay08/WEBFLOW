@@ -56,12 +56,14 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex items-center space-x-6">
-            <Link 
-              href="/login" 
+            <a 
+              href="https://x.com/WebFlow_Tech" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200"
             >
               Twitter
-            </Link>
+            </a>
             <WalletMultiButton className="!bg-[#FF0033] hover:!bg-[#FF0033]/90 !text-white !px-5 !py-2 !rounded-lg !text-sm !font-medium transition-all duration-200" />
           </div>
         </div>
