@@ -4,6 +4,18 @@ import { useWallet } from '@solana/wallet-adapter-react';
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
   const { connected } = useWallet();
+  const [copied, setCopied] = useState(false);
+  const contractAddress = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // 32 X's
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(contractAddress);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
 
   useEffect(() => {
     if (showModal) {
@@ -30,7 +42,7 @@ const Hero = () => {
             Build Stunning<br />
             Websites with AI.
           </h1>
-          <div className="w-full max-w-[720px]">
+          <div className="w-full max-w-[720px] mb-12">
             <div className="relative">
               <input
                 type="text"
@@ -54,6 +66,49 @@ const Hero = () => {
                 </svg>
               </button>
             </div>
+          </div>
+
+          {/* Contract Address Button */}
+          <div className="mt-48">
+            <button
+              onClick={copyToClipboard}
+              className="flex items-center gap-3 px-6 py-3 bg-[#141414] hover:bg-[#1A1A1A] border border-[#282828] rounded-lg transition-all duration-200"
+            >
+              <span className="text-gray-300 font-mono text-sm">
+                {contractAddress}
+              </span>
+              <div className="w-6 h-6 flex items-center justify-center">
+                {copied ? (
+                  <svg 
+                    className="w-5 h-5 text-[#FF0033]"
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                ) : (
+                  <svg 
+                    className="w-5 h-5 text-gray-400"
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+                    />
+                  </svg>
+                )}
+              </div>
+            </button>
           </div>
         </div>
       </div>
