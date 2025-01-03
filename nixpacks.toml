@@ -1,6 +1,6 @@
 [phases.setup]
 nixPkgs = ["nodejs-18_x", "npm-9_x", "git"]
-aptPkgs = ["git"]
+aptPkgs = []
 
 [phases.install]
 cmds = ["npm ci --legacy-peer-deps"]

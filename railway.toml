@@ -6,4 +6,5 @@ buildCommand = "npm run build"
 startCommand = "npm start"
 healthcheckPath = "/"
 healthcheckTimeout = 100
-restartPolicy = "on-failure" 
+restartPolicy = "on-failure"
+numReplicas = 1 
