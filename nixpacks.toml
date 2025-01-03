@@ -3,11 +3,10 @@ nixPkgs = ["nodejs-18_x", "npm-9_x"]
 aptPkgs = ["git"]
 
 [phases.install]
-cmds = ["npm ci --production=false"]
+cmds = ["npm ci"]
 
 [phases.build]
 cmds = ["npm run build"]
 
 [start]
-cmd = "npm start"
-watchPatterns = ["./"] 
+cmd = "npm start" 
