@@ -15,7 +15,7 @@ const Footer = () => {
         {/* Background Text */}
         <div className="relative w-full flex items-center justify-center pointer-events-none select-none overflow-hidden mb-16">
           <h2 className="text-[120px] md:text-[180px] lg:text-[220px] font-bold text-[#1A1A1A] tracking-tight leading-none whitespace-nowrap opacity-50">
-            WEBFLOW
+            DESIGNLY
           </h2>
         </div>
       </section>

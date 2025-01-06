@@ -45,28 +45,28 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What is WebFlow?",
-      answer: "WebFlow is an AI-powered website builder that helps you create stunning, professional websites in minutes. Simply describe your vision, and our AI will generate a complete website tailored to your needs."
+      question: "What is Designly?",
+      answer: "Designly is an AI-powered website builder that helps you create stunning, professional websites in minutes. Simply describe your vision, and our AI will generate a complete website tailored to your needs."
     },
     {
-      question: "How does WebFlow work?",
-      answer: "WebFlow uses advanced AI to transform your text descriptions into fully-functional websites. Just type what you want, and our AI handles the design, layout, and content generation. You can then refine and customize every aspect until it's perfect."
+      question: "How does Designly work?",
+      answer: "Designly uses advanced AI to transform your text descriptions into fully-functional websites. Just type what you want, and our AI handles the design, layout, and content generation. You can then refine and customize every aspect until it's perfect."
     },
     {
-      question: "Do I need coding skills to use WebFlow?",
-      answer: "Not at all! WebFlow is designed to be completely code-free. Our AI understands natural language, so you can create and modify your website using simple text instructions."
+      question: "Do I need coding skills to use Designly?",
+      answer: "Not at all! Designly is designed to be completely code-free. Our AI understands natural language, so you can create and modify your website using simple text instructions."
     },
     {
-      question: "How fast can I create a website with WebFlow?",
+      question: "How fast can I create a website with Designly?",
       answer: "You can have a professional website ready in minutes. Simply describe your vision, review the AI-generated design, make any desired adjustments, and your website is ready to launch."
     },
     {
-      question: "Can I customize my landing page with WebFlow?",
+      question: "Can I customize my landing page with Designly?",
       answer: "Absolutely! While our AI creates the initial design, you have full control to customize every aspect of your website. Use natural language to request changes, and see them implemented instantly."
     },
     {
-      question: "Is WebFlow suitable for businesses of all sizes?",
-      answer: "Yes! Whether you're a solo entrepreneur, small business, or large enterprise, WebFlow offers plans and features to match your needs. Our scalable platform grows with your business."
+      question: "Is Designly suitable for businesses of all sizes?",
+      answer: "Yes! Whether you're a solo entrepreneur, small business, or large enterprise, Designly offers plans and features to match your needs. Our scalable platform grows with your business."
     }
   ]
 

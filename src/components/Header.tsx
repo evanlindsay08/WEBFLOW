@@ -46,18 +46,18 @@ const Header = () => {
               <div className="w-8 h-8 bg-[#FF0033] rounded-full flex items-center justify-center overflow-hidden">
                 <Image 
                   src="/images/webflow.png"
-                  alt="WebFlow Logo"
+                  alt="Designly Logo"
                   width={24}
                   height={24}
                   className="object-contain"
                 />
               </div>
-              <span className="text-white text-xl font-medium">WebFlow</span>
+              <span className="text-white text-xl font-medium">Designly</span>
             </Link>
           </div>
           <div className="flex items-center space-x-6">
             <a 
-              href="https://x.com/WebFlow_Tech" 
+              href="https://x.com/Designly_Tech" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200"

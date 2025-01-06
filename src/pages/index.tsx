@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>WebFlow - Build Stunning Websites with AI</title>
+        <title>Designly - Build Stunning Websites with AI</title>
         <meta name="description" content="Create beautiful, production-ready websites using AI" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

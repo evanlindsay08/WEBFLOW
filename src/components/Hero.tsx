@@ -5,7 +5,7 @@ const Hero = () => {
   const [showModal, setShowModal] = useState(false);
   const { connected } = useWallet();
   const [copied, setCopied] = useState(false);
-  const contractAddress = "BeV54cqzivriNHZdHDrQ7mw9qP2kwBoUxGCsyvywpump"; // 32 X's
+  const contractAddress = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // 32 X's
 
   const copyToClipboard = async () => {
     try {
@@ -29,7 +29,7 @@ const Hero = () => {
 
   const getModalMessage = () => {
     if (connected) {
-      return "Please bare with us, as we validate the contract address for $FLOW, in order to confirm if you hold the correct number of tokens";
+      return "Please bare with us, as we validate the contract address for $DESIGNLY, in order to confirm if you hold the correct number of tokens";
     }
     return "Hold 500,000 tokens to unlock this feature";
   };

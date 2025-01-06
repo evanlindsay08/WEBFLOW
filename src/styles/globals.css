@@ -91,4 +91,9 @@ section {
 
 .wallet-adapter-modal-title {
   color: white !important;
+}
+
+/* Handle service worker registration error gracefully */
+.sw-error {
+  display: none;
 } 
