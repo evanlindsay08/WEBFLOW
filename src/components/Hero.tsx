@@ -29,7 +29,7 @@ const Hero = () => {
 
   const getModalMessage = () => {
     if (connected) {
-      return "Please bare with us, as we validate the contract address for $DESIGNLY, in order to confirm if you hold the correct number of tokens";
+      return "Please bare with us, as we validate the contract address for $DAI, in order to confirm if you hold the correct number of tokens";
     }
     return "Hold 500,000 tokens to unlock this feature";
   };
