@@ -5,7 +5,7 @@ const Hero = () => {
   const [showModal, setShowModal] = useState(false);
   const { connected } = useWallet();
   const [copied, setCopied] = useState(false);
-  const contractAddress = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // 32 X's
+  const contractAddress = "4vPP1ZgjS34jKGGVMXGYFnPYXFtSD4rVkHDkta3hpump"; // 32 X's
 
   const copyToClipboard = async () => {
     try {
